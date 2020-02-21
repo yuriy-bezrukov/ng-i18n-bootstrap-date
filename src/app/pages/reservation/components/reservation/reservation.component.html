@@ -1,0 +1,29 @@
+<form class="reservation-form">
+    <div class="reservation-date">
+        <input 
+            (ngModelChange)="onChangeDate($event)"
+            [(ngModel)]="date"
+            [readonly]="true"
+            #d="ngbDatepicker"
+            class="form-control"
+            name="dp"
+            ngbDatepicker
+        >
+        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Select</button>
+    </div>
+    <div class="reservation-time">
+        <ngb-timepicker
+            [(ngModel)]="time"
+            [ngModelOptions]="{standalone: true}"
+            [hourStep]="hourStep"
+            [minuteStep]="minuteStep"
+            (ngModelChange)="onChangeTime($event)"
+            [readonlyInputs]="true"
+        ></ngb-timepicker>
+    </div>
+</form>
+
+<div class="reservation-item">
+    <app-reservation-item [item]="currentReservationItem"></app-reservation-item>
+    <button *ngIf="!currentReservationItem?.isReservation" type="button" (click)="reservation()">Reservation</button>
+</div>

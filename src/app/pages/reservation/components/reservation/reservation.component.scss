@@ -1,0 +1,19 @@
+.reservation {
+
+    &-form {
+        display: flex;
+        align-items: center;
+    }
+
+    &-date {
+        display: flex;
+        max-width: 300px;
+        margin: 0 15px 0 0;
+    }
+
+    &-item {
+        box-shadow: 0 0 5px;
+        max-width: 300px;
+        padding: 10px;
+    }
+}
